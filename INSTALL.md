@@ -2,7 +2,8 @@
 
 1. Install Git and pip3
 ```
-sudo apt install git python3-pip # replace "apt" with your package manager
+sudo apt install git python3-pip    # Debian/Ubuntu
+brew install git python3            # macOS (using Homebrew)
 ```
 
 2. Install ABC by following [these steps](https://github.com/vlab-cs-ucsb/ABC/blob/master/INSTALL.md)

@@ -19,15 +19,19 @@ class Shell:
     def setTag(self, tag):
         self.log.setTag(tag)
         
-    def runcmd(self, cmd, cwd=None, shell=False):
-        # self.log.v("cmd: {}\n  with params: cwd={}, shell={}".format(cmd, cwd, shell))
-        args = shlex.split(cmd)
+    def runcmd(self, cmd, cwd=None, shell=False, timeout=None):
+        # self.log.v("cmd: {}\n  with params: cwd={}, shell={}, timeout={}".format(cmd, cwd, shell, timeout))
+        args = shlex.split(cmd) if isinstance(cmd, str) else cmd
         p = Popen(args, stdout=PIPE, stderr=PIPE, cwd=cwd, shell=shell)
-        out, err = p.communicate()
+        try:
+            out, err = p.communicate(timeout=timeout)
+        except Exception:
+            p.kill()
+            out, err = p.communicate()
         if out:
             out = out.decode("ascii")
             # self.log.v("cmd output: {}\n".format(out))
-        if err:    
+        if err:
             err = err.decode("ascii")
             # self.log.v("cmd error: {}\n".format(err))             
 

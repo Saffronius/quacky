@@ -24,6 +24,9 @@ The artifact is a .zip file containing the following:
 - experimental results (under `results`)
 - a copy of the accepted technical paper (under `docs`).
 
+Quacky was originally developed on Linux but is also compatible with modern
+macOS systems (tested on macOS 12+).
+
 *Note: To unzip the artifact, you can double click on the .zip file or use the `unzip` utility.*
 
 ## Installing Quacky

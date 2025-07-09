@@ -238,18 +238,12 @@ def get_results(fname, bound, shell, timeout = None):
 
     variables = get_variables(fname)
 
-    cmd = ''
-    
-    if timeout:
-        cmd += 'timeout -k {0}s {0}s '.format(timeout)
-    
-    cmd += 'abc -i {}'.format(fname)
+    cmd = 'abc -i {}'.format(fname)
     cmd += ' -bs {0}'.format(bound)
     cmd += ' --precise --count-tuple --count-variable {} -v 0'.format(','.join(variables))
-    
-    out, err = shell.runcmd(cmd)
+
+    out, err = shell.runcmd(cmd, timeout=timeout)
 
     # Parse ABC output
     results = get_abc_result_line(out, err)
-
     return results

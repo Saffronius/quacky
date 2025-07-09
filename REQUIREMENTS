@@ -1,7 +1,8 @@
 ===== Software Requirements =====
-Quacky has been developed and tested on Ubuntu 20.04 LTS only. We require
+Quacky has been primarily developed on Ubuntu 20.04 LTS, but it can also run on
+modern macOS systems. We require
 
-- Linux 4.4.0-198 or higher, 64-bit
+- Linux 4.4.0-198 or higher, 64-bit, or macOS 12+
 - Python 3.8 or higher
 - latest version of Git
 - latest version of pip3
